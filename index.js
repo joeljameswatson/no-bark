@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const sound = require("sound-play");
+var player = require('play-sound')(opts = {});
 
 const app = express();
 const port = 4000;
@@ -12,7 +13,10 @@ app.get("/", (req, res) => {
 
 app.post("/silence", (req, res) => {
   console.log("silence");
-  sound.play(path.join(__dirname, "siren.wav"));
+  player.play(path.join(__dirname, "siren.wav"), function(err){
+    if (err) throw err
+  })
+  // sound.play(path.join(__dirname, "siren.wav"));
 });
 
 app.listen(port, () => {
