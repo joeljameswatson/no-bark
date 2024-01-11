@@ -11,12 +11,23 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/index.html"));
 });
 
-app.post("/silence", (req, res) => {
-  console.log("silence");
+app.post("/ringing", (req, res) => {
+  player.play(path.join(__dirname, "ringing.wav"), function(err){
+    if (err) throw err
+  })
+});
+
+app.post("/siren", (req, res) => {
   player.play(path.join(__dirname, "siren.wav"), function(err){
     if (err) throw err
   })
-  // sound.play(path.join(__dirname, "siren.wav"));
+});
+
+app.post("/high_pitch", (req, res) => {
+  console.log("silence");
+  player.play(path.join(__dirname, "high_pitch.wav"), function(err){
+    if (err) throw err
+  })
 });
 
 app.listen(port, () => {

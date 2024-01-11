@@ -5,8 +5,16 @@
   </head>
   <body>
     <button 
-      onclick="fetch('/silence', { method: 'POST'})"
-      style="width:100%; height: 100px"
-    >SILENCE</button>
+      onclick="fetch('/ringing', { method: 'POST'})"
+      style="width:100%; height: 200px; font-size: 50px;"
+    >VERY HIGH PITCH</button>
+    <button 
+      onclick="fetch('/high_pitch', { method: 'POST'})"
+      style="width:100%; height: 200px; font-size: 50px;"
+    >HIGH PITCH</button>
+    <button 
+      onclick="fetch('/siren', { method: 'POST'})"
+      style="width:100%; height: 200px; font-size: 50px;"
+    >SIREN</button>
   </body>
 </html>
