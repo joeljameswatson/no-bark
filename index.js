@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const sound = require("sound-play");
 var player = require('play-sound')(opts = {});
 
 const app = express();
@@ -24,8 +23,13 @@ app.post("/siren", (req, res) => {
 });
 
 app.post("/high_pitch", (req, res) => {
-  console.log("silence");
   player.play(path.join(__dirname, "high_pitch.wav"), function(err){
+    if (err) throw err
+  })
+});
+
+app.post("/psst", (req, res) => {
+  player.play('psst.wav', function(err){
     if (err) throw err
   })
 });
