@@ -29,7 +29,7 @@ app.post("/high_pitch", (req, res) => {
 });
 
 app.post("/psst", (req, res) => {
-  player.play('psst.wav', function(err){
+  player.play(path.join(__dirname, 'psst.wav'), function(err){
     if (err) throw err
   })
 });
